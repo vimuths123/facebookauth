@@ -1,13 +1,23 @@
-const fetch = require('node-fetch');
+const axios = require('axios');
 
 exports.handler = async (event) => {
-  const { accessToken } = JSON.parse(event.body);
+  const accessToken = JSON.parse(event.body).accessToken;
+  const fields = 'id,name,email'; // Specify the fields you want to retrieve
+  const apiUrl = `https://graph.facebook.com/v12.0/me?fields=${fields}&access_token=${accessToken}`;
 
-  const response = await fetch(`https://graph.facebook.com/v12.0/me?fields=id,name,email&access_token=${accessToken}`);
-  const data = await response.json();
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify(data)
-  };
+  try {
+    const response = await axios.get(apiUrl);
+    const data = response.data;
+    console.log(data);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data)
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Error retrieving user data' })
+    };
+  }
 };
