@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <input type="submit" value="Log In">
+        </div>
+        <br />
+        <!-- <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="rounded"
+            data-auto-logout-link="false" data-use-continue-as="false"></div> -->
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <div id="g_id_onload" 
+        data-client_id="937478587574-jet18jb9l7thi95lthvlmvklolf9vk1t.apps.googleusercontent.com"
+            data-login_uri="http://localhost:3000/google-auth" data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
+            data-shape="rectangular" data-logo_alignment="left">
+        </div>
+        
+</body>
+
+</html>
+
+
+
+
+
+
+</form>
+
+<!-- Google Sign-In API script -->
+
+
+<!-- <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1006900310282691',
+                cookie: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+</body>
+
+</html>
